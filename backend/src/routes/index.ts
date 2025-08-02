@@ -1,8 +1,9 @@
 import { Router } from "express";
+import { signup } from "../controllers";
 
 export const v1Router = Router();
 
-v1Router.post("/signup", () => {});
+v1Router.post("/signup", signup);
 
 v1Router.post("/signin", () => {});
 

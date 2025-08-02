@@ -19,18 +19,18 @@ const zodUser = zod.object({
     .max(20, "Password cannot exceed 20 characters."),
 });
 
-export default async function signupUser(req: Request, res: Response) {
-  const validation = zodUser.safeParse(req.body);
+export default async function signup(req: Request, res: Response) {
+  const { success, error, data } = zodUser.safeParse(req.body);
 
-  if (!validation.success) {
+  if (!success) {
     return res.status(400).json({
       success: false,
-      message: "User created failed!",
-      error: validation.error,
+      message: "User creation failed!",
+      errors: error.issues[0].message
     });
   }
 
-  const { username, password } = validation.data;
+  const { username, password } = data;
 
   const saltRounds = 10;
   const hashedPassword = await bcrypt.hash(password, saltRounds);
