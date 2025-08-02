@@ -2,14 +2,12 @@ import mongoose, { Schema, ObjectId, model } from "mongoose";
 import dotenv from "dotenv";
 
 dotenv.config();
-const mongoURI = process.env.MONGODB_URI;
+const mongoURI = process.env.MONGODB_URI as string;
 
-if (mongoURI) {
-  mongoose
-    .connect(mongoURI)
-    .then(() => console.log("MongoDB connected successfully!"))
-    .catch((err) => console.error("MongoDB connection error:", err));
-}
+mongoose
+  .connect(mongoURI)
+  .then(() => console.log("MongoDB connected successfully!"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 const userSchema = new Schema({
   username: { type: String, require: true, unique: true },
