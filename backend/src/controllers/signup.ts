@@ -23,7 +23,7 @@ export default async function signup(req: Request, res: Response) {
   const { success, error, data } = zodUser.safeParse(req.body);
 
   if (!success) {
-    return res.status(400).json({
+    return res.status(411).json({
       success: false,
       message: "User creation failed!",
       errors: error.issues[0].message
@@ -43,7 +43,7 @@ export default async function signup(req: Request, res: Response) {
   try {
     await newUser.save();
   } catch (err) {
-    return res.status(400).json({
+    return res.status(403).json({
       success: false,
       message: "Username already taken",
     });
