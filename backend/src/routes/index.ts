@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { signup } from "../controllers";
+import { signup, login } from "../controllers";
 
 export const v1Router = Router();
 
 v1Router.post("/signup", signup);
 
-v1Router.post("/signin", () => {});
+v1Router.post("/signin", login);
 
 v1Router.get("/content", () => {});
 
