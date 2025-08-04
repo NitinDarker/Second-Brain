@@ -11,7 +11,7 @@ const jwtKey = process.env.JWT_KEY as string;
 const zodUser = zod.object({
   username: zod
     .string()
-    .min(1, "Username is required")
+    .min(3, "Username must at least be 3 characters")
     .max(12, "Username cannot exceed 12 characters"),
   password: zod
     .string()
