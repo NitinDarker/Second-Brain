@@ -1,5 +1,5 @@
 import './App.css'
-import { Button } from './components/ui/button'
+import Button from './components/personal/Button'
 import {
   Card,
   CardAction,
@@ -14,8 +14,9 @@ function App () {
   return (
     <div className=''>
       <Button
-        variant={'outline'}
+        variant="primary"
         className='bg-violet-700 text-white antialiased rounded-md hover:bg-violet-500 hover:text-white hover:cursor-pointer hover:scale-105'
+        text='Hey there'
       >
         Hey there
       </Button>
