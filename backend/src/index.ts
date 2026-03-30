@@ -20,6 +20,14 @@ app.get("/", (req, res) => {
   });
 });
 
+// IP check
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    message: "ok",
+    ip: req.ip
+  });
+});
+
 // Catch-All Middleware
 app.use((req, res, next) => {
   res.status(404).json({
