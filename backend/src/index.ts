@@ -24,7 +24,8 @@ app.get("/", (req, res) => {
 app.get("/health", (req, res) => {
   res.status(200).json({
     message: "ok",
-    ip: req.ip
+    ip: req.ip,
+    headers: req.headers
   });
 });
 
